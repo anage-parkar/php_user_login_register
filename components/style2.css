@@ -1,0 +1,255 @@
+/* ==================== PURE GLASSMORPHISM AUTH SYSTEM ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+    /* Stunning animated gradient background */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 100%;
+    max-width: 440px;
+}
+
+/* ============== GLASS CARD (Login, Register, Welcome) ============== */
+.login-card,
+.welcome-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.37),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    padding: 45px 40px;
+    animation: floatIn 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle inner glow border effect */
+.login-card::before,
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #e0e0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* ============== ALERTS ============== */
+.alert {
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    font-weight: 500;
+    font-size: 14.5px;
+    border: none;
+    animation: shake 0.5s ease-in-out;
+}
+
+.alert-danger {
+    background: rgba(255, 65, 85, 0.22);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.alert-success {
+    background: rgba(80, 200, 120, 0.22);
+    color: #90ee90;
+    border: 1px solid rgba(144, 238, 144, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* ============== FORM INPUTS ============== */
+.form-control {
+    width: 100%;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ============== BUTTONS ============== */
+.btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    color: white;
+    box-shadow: 0 8px 25px rgba(255, 95, 109, 0.4);
+}
+
+.btn-danger:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(255, 95, 109, 0.5);
+}
+
+/* ============== FOOTER LINKS ============== */
+.mt-2 {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mt-2 a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.mt-2 a:hover {
+    border-bottom: 1px solid white;
+}
+
+/* ============== WELCOME PAGE SPECIFIC ============== */
+.welcome-card {
+    text-align: center;
+    padding: 55px 45px;
+}
+
+.welcome-card h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.text-muted {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 22px;
+    margin: 28px 0;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.info-box strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 480px) {
+    .login-card,
+    .welcome-card {
+        padding: 40px 30px;
+        margin: 10px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .welcome-card h2 {
+        font-size: 30px;
+    }
+}
