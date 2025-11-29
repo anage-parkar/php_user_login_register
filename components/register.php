@@ -1,5 +1,5 @@
 <?php
-session_start();           // Must be first!
+session_start();           
 include "db.php";
 
 $message = "";
@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (strlen($password) < 6) {
         $message = "<div class='alert alert-danger'>Password must be at least 6 characters!</div>";
     } else {
-        // Check if email already exists
         $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
         $check->bind_param("s", $email);
         $check->execute();
@@ -56,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <div class="container">
-    <div class="login-card"> <!-- Reusing the same card class for consistency -->
+    <div class="login-card"> 
 
         <h2>Create Your Account</h2>
 
