@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Redirect to login if not logged in
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
 
-// Optional: Logout handler
 if (isset($_GET["logout"])) {
     session_destroy();
     header("Location: login.php");
@@ -33,30 +31,25 @@ $username = $_SESSION["username"] ?? "User";
 <div class="container">
     <div class="login-card welcome-card">
 
-        <!-- Greeting -->
         <div class="text-center mb-4">
             <h2>Hello, <span style="color: #667eea; font-weight: 700;"><?= htmlspecialchars($username) ?></span>!</h2>
             <p class="text-muted">You are now logged in successfully</p>
         </div>
 
-        <!-- Success Icon (optional visual flair) -->
         <div class="text-center mb-4">
             <div style="font-size: 60px; color: #56ab2f;">✅</div>
         </div>
 
-        <!-- Quick Info Card -->
         <div class="info-box">
             <p><strong>Email:</strong> <?= htmlspecialchars($_SESSION["email"] ?? "Not shown") ?></p>
             <p><strong>User ID:</strong> #<?= $_SESSION["user_id"] ?></p>
             <p><strong>Logged in at:</strong> <?= date("d M Y, h:i A") ?></p>
         </div>
 
-        <!-- Action Buttons -->
         <div class="mt-4">
             <a href="?logout=true" class="btn btn-danger w-100">Logout</a>
         </div>
         <br>
-        <!-- Footer Note -->
         <p class="mt-3 text-center text-muted small">
             Thanks for using our app! 
         </p>
